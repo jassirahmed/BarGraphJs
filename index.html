@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chart Js</title>
+    <link rel="stylesheet" href="css/bootstrap/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container">
+
+        <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+    </div>
+    <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+    <script>
+        html2canvas(document.body).then(function (canvas) {
+            document.body.appendChild(canvas);
+        });
+        window.onload = function () {
+
+            //Better to construct options first and then pass it as a parameter
+
+            var options = {
+                backgroundColor: "#fff",
+                title: {
+                    fontColor: "#333",
+                    fontSize: 20,
+                    fontWeight: 500,
+                    text: "[Last 30 Days] Top 5 India Channels With Highest CR",
+
+                },
+                axisY: {
+                    valueFormatString: "##k",
+                },
+                toolTip: {
+                    borderThickness: 0,
+                    cornerRadius: 3,
+                },
+                legend: {
+                    fontSize: 15,
+                    borderColor: "#333",
+                    cornerRadius: 3,
+                    maxWidth: 300,
+                },
+                data: [
+                    {
+                        // Change type to "doughnut", "line", "splineArea", etc.
+                        legendMarkerType: "circle",
+                        type: "column",
+                        color: "#a46fff",
+                        width: 320,
+                        backgroundColor: "#333",
+                        borderColor: "#333",
+                        name: "Non-Organic Installs",
+                        showInLegend: true,
+                        valueFormatString: "##k",
+
+                        dataPoints: [
+                            { label: "Sun Tv", y: 30 },
+                            { label: " ", y: 20 },
+                            { label: "Zee Tv", y: 15 },
+                            { label: " ", y: 10 },
+                            { label: "STAR Vijay", y: 5 }
+                        ]
+                    }
+                ]
+            };
+
+            $("#chartContainer").CanvasJSChart(options);
+        };
+
+
+    </script>
+</body>
+
+</html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+    <div id="capture" style="padding: 10px; background: #f5da55">
+        <h4 style="color: #000; ">Hello world!</h4>
+    </div>
+    <script>
+        html2canvas(document.querySelector("#capture")).then(canvas => {
+            document.body.appendChild(canvas)
+        });
+    </script>
+</body>
+
+</html>

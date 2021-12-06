@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="../fontawesome-free-5.15.4-web/css/all.min.css">
+	<link rel="stylesheet" href="../bootsrap 5.1.0/css/bootstrap.min.css">
+	<style>
+		.fardeen-con {
+			position: relative;
+			width: 100%;
+			height: 100%;
+			max-width: 100%;
+		}
+
+		.fardeen-head {
+			width: 100%;
+		}
+
+		.icon i {
+			margin-right: 25px;
+			color: #999;
+		}
+	</style>
+	<script>
+		window.onload = function () {
+
+			var options3 = {
+				animationEnabled: true,
+				axisY: {
+					valueFormatString: "#0",
+					includeZero: true,
+					suffix: "K",
+				},
+				legend: {
+					cursor: "pointer",
+					itemclick: toogleDataSeries,
+					markerType: "dot"
+				},
+				toolTip: {
+					shared: true
+				},
+				data: [{
+					type: "line",
+					name: "App a",
+					markerSize: 0,
+					markerColor: "#a46ffd",
+					legendMarkerColor: "#a46ffd",
+					lineColor: "#a46ffd",
+					showInLegend: true,
+					yValueFormatString: "#K",
+					labels: ['Mar/23/2021', ' ', ' ', 'Mar/28/2021', ' ', ' ', ' ', ' ', 'Apr/02/2021', ' ', ' ', ' ', ' ', ' ', 'Apr/07/2021', ' ',
+						' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ',
+						'Apr/19/2021'],
+					dataPoints: [
+						{ x: 0, y: 9.2, label: "Mar/23/2021" },
+						{ x: 1, y: 8.0, label: " " },
+						{ x: 2, y: 8.1, label: "Mar/28/2021" },
+						{ x: 4, y: 9.8, label: " " },
+						{ x: 5, y: 10.1, label: " " },
+						{ x: 6, y: 8.1, label: " " },
+						{ x: 7, y: 7.0, label: " " },
+						{ x: 8, y: 7.0, label: "Apr/02/2021" },
+						{ x: 9, y: 9.9, label: " " },
+						{ x: 10, y: 13.9, label: " " },
+						{ x: 11, y: 10.3, label: " " },
+						{ x: 12, y: 11.8, label: " " },
+						{ x: 13, y: 9.8, label: " " },
+						{ x: 14, y: 7.5, label: "Apr/07/2021" },
+						{ x: 15, y: 7.9, label: " " },
+						{ x: 16, y: 7.4, label: " " },
+						{ x: 17, y: 9.0, label: " " },
+						{ x: 18, y: 9.8, label: " " },
+						{ x: 19, y: 7.1, label: " " },
+						{ x: 20, y: 6.6, label: " " },
+						{ x: 21, y: 8.1, label: " " },
+						{ x: 22, y: 10.1, label: "Apr/19/2021" }
+					]
+				}, {
+					type: "line",
+					name: "App b",
+					markerType: "circle",
+					legendMarkerColor: "#f8a16b",
+					markerSize: 0,
+					lineColor: "#f8a16b",
+					markerColor: "#f8a16b",
+					showInLegend: true,
+					yValueFormatString: "#K",
+					dataPoints: [
+						{ x: 0, y: 3.5, label: "Mar/23/2021" },
+						{ x: 1, y: 3.4, label: " " },
+						{ x: 2, y: 3.9, label: "Mar/28/2021" },
+						{ x: 4, y: 4.5, label: " " },
+						{ x: 5, y: 4.6, label: " " },
+						{ x: 6, y: 3.6, label: " " },
+						{ x: 7, y: 3.3, label: " " },
+						{ x: 8, y: 1.9, label: "Apr/02/2021" },
+						{ x: 9, y: 1.8, label: " " },
+						{ x: 10, y: 4.4, label: " " },
+						{ x: 11, y: 4.0, label: " " },
+						{ x: 12, y: 3.9, label: " " },
+						{ x: 13, y: 4.0, label: " " },
+						{ x: 14, y: 4.0, label: "Apr/07/2021" },
+						{ x: 15, y: 3.7, label: " " },
+						{ x: 16, y: 4.1, label: " " },
+						{ x: 17, y: 4.8, label: " " },
+						{ x: 18, y: 3.7, label: " " },
+						{ x: 19, y: 3.4, label: " " },
+						{ x: 20, y: 3.6, label: " " },
+						{ x: 21, y: 4.0, label: " " },
+						{ x: 22, y: 3.6, label: "Apr/19/2021" }
+
+					]
+				}]
+			};
+			$("#chartContainer").CanvasJSChart(options3);
+
+			function toogleDataSeries(e) {
+				if (typeof (e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+					e.dataSeries.visible = false;
+				} else {
+					e.dataSeries.visible = true;
+				}
+				e.chart.render();
+			}
+
+		}
+	</script>
+</head>
+
+<body>
+
+	<section>
+		<div class="container">
+			<header>
+				<div class="row">
+					<div class="title col">
+						<h3>[Last 30 Days]Non-Organic Installs by App</h3>
+					</div>
+					<div class="icon col text-end ">
+						<i class="far fa-clone"></i>
+						<i class="far fa-edit"></i>
+						<i class="fas fa-download"></i>
+						<i class="far fa-trash-alt"></i>
+					</div>
+				</div>
+			</header>
+			<div id="linechartContainer3" style="height: 200px;"></div>
+		</div>
+	</section>
+
+	<script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+	<script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
+</body>
+
+</html>

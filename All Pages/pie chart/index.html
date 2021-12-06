@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <style>
+        body {
+            margin-top: 20px;
+        }
+
+        .col-md-6 {
+            box-shadow: 0 0 8px #00000057;
+            border-radius: 10px;
+            padding: 0 15px 0 7px;
+            width: 49%;
+            margin-right: 13px;
+            position: relative;
+        }
+
+        .icons {
+            position: absolute;
+            z-index: 9;
+            right: 20px;
+            top: 10px;
+        }
+
+        .icons i {
+            display: inline-block;
+            padding: 0 5px;
+            color: #00000078;
+            cursor: pointer;
+        }
+
+        #chartContainer1,
+        #chartContainer2 {
+            height: 400px !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+                <span class="icons">
+                    <i class="far fa-copy"></i>
+                    <i class="far fa-edit"></i>
+                    <i class="fas fa-download"></i>
+                    <i class="far fa-trash-alt"></i>
+                </span>
+                <div id="chartContainer1" style="height: 300px; width: 100%;"></div>
+            </div>
+            <div class="col-md-6">
+                <span class="icons">
+                    <i class="far fa-copy"></i>
+                    <i class="far fa-edit"></i>
+                    <i class="fas fa-download"></i>
+                    <i class="far fa-trash-alt"></i>
+                </span>
+                <div id="chartContainer2" style="height: 300px; width: 100%;"></div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
+    <script type="text/javascript">
+        window.onload = function () {
+
+            var options = {
+                title: {
+                    text: "[Last 30 Days | Deliverables] Installs vs. Reinstalls Ratio",
+                    horizontalAlign: "left",
+                    fontSize: 18,
+                    backgroundColor: "#fff",
+                    fontWeight: "normal",
+                    padding: {
+                        top: 10,
+                        right: 0,
+                        bottom: 20,
+                        left: 0
+                    },
+                },
+                legend: {
+                    horizontalAlign: "right",
+                    verticalAlign: "top",
+                    maxWidth: 110,
+                    fontSize: 18,
+                    fontFamily: "sans-serif",
+                    fontWeight: "normal",
+                },
+                data: [{
+                    type: "pie",
+                    startAngle: 220,
+                    showInLegend: "true",
+                    legendText: "{label}",
+                    indexLabel: "{label} ({y})",
+                    yValueFormatString: ("#'%'"),
+                    dataPoints: [{
+                        label: "Reinstalls",
+                        y: 15,
+                        color: "#f6a168"
+                    },
+                    {
+                        label: "Installs",
+                        y: 85,
+                        color: "#a46fff",
+                    },
+                    ]
+                }]
+            };
+            var options1 = {
+                title: {
+                    text: "[Last 30 Days | SKAdnetwork] Installs vs. Reinstalls Ratio",
+                    horizontalAlign: "left",
+                    fontSize: 18,
+                    backgroundColor: "#fff",
+                    fontWeight: "normal",
+                    padding: {
+                        top: 10,
+                        right: 0,
+                        bottom: 20,
+                        left: 0
+                    },
+                },
+                legend: {
+                    horizontalAlign: "right",
+                    verticalAlign: "top",
+                    maxWidth: 110,
+                    fontSize: 18,
+                    fontWeight: "normal",
+                    fontFamily: "sans-serif",
+                },
+                data: [{
+                    type: "pie",
+                    startAngle: 180,
+                    showInLegend: "true",
+                    legendText: "{label}",
+                    indexLabel: "{label} ({y})",
+                    yValueFormatString: ("#'%'"),
+                    dataPoints: [{
+                        label: "Reinstalls",
+                        y: 25,
+                        color: "#f6a168"
+                    },
+                    {
+                        label: "Installs",
+                        y: 75,
+                        color: "#a46fff",
+                    },
+                    ]
+                }],
+            };
+            $("#chartContainer1").CanvasJSChart(options);
+            $("#chartContainer2").CanvasJSChart(options1);
+
+        }
+    </script>
+</body>
+
+</html>

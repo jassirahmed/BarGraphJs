@@ -7,33 +7,90 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chart Js</title>
     <link rel="stylesheet" href="css/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/fontawesome/css/all.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0px;
+        }
+
+        body {
+            height: 100%;
+            width: 100%;
+            background-color: #f4f5f7;
+        }
+
+        .myChart {
+            border: 1px solid #3333330f;
+            margin-top: 50px;
+            border-radius: 10px;
+            margin: 3.5%;
+            background-color: #fff;
+            box-shadow: #fff;
+            box-shadow: 0px 0px 10px #333;
+        }
+
+        .header {
+            --bs-gutter-x: 0rem;
+            --bs-gutter-y: 0;
+            z-index: 10;
+            flex-wrap: nowrap;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 15px 10px 40px;
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .title {
+            text-align: left;
+        }
+
+        .font {
+            text-align: right;
+        }
+
+        span {
+            margin: 0 5px;
+            display: inline-block;
+        }
+    </style>
 </head>
 
 <body>
-    <div class="container">
 
-        <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+    <div class="myChart">
+        <div class="container">
+            <header class="row header">
+                <div class="col title">[Last 30 Days] Top 5 India Channels With Highest CR</div>
+                <div class="col font">
+                    <span class=""><i class="far fa-clone"></i></span>
+                    <span class=""><i class="far fa-edit"></i></span>
+                    <span class=""><i class="fas fa-download"></i></span>
+                    <span class=""><i class="far fa-trash-alt"></i></span>
+                </div>
+            </header>
+            <div id="chartContainer" style="height: 500px; width: 100%;"></div>
+        </div>
+    </div>
     </div>
     <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
     <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
-    <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
     <script>
-        html2canvas(document.body).then(function (canvas) {
-            document.body.appendChild(canvas);
-        });
         window.onload = function () {
 
             //Better to construct options first and then pass it as a parameter
 
             var options = {
                 backgroundColor: "#fff",
-                title: {
-                    fontColor: "#333",
-                    fontSize: 20,
-                    fontWeight: 500,
-                    text: "[Last 30 Days] Top 5 India Channels With Highest CR",
+                // title: {
+                //     fontColor: "#333",
+                //     fontSize: 20,
+                //     fontWeight: 500,
+                //     text: "[Last 30 Days] Top 5 India Channels With Highest CR",
+                //     horizontalAlign: "left",
 
-                },
+                // },
                 axisY: {
                     valueFormatString: "##k",
                 },
@@ -61,7 +118,7 @@
                         valueFormatString: "##k",
 
                         dataPoints: [
-                            { label: "Sun Tv", y: 30 },
+                            { label: "Sun Tv", y: 35 },
                             { label: " ", y: 20 },
                             { label: "Zee Tv", y: 15 },
                             { label: " ", y: 10 },
@@ -75,29 +132,6 @@
         };
 
 
-    </script>
-</body>
-
-</html>
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
-<body>
-    <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
-    <div id="capture" style="padding: 10px; background: #f5da55">
-        <h4 style="color: #000; ">Hello world!</h4>
-    </div>
-    <script>
-        html2canvas(document.querySelector("#capture")).then(canvas => {
-            document.body.appendChild(canvas)
-        });
     </script>
 </body>
 
